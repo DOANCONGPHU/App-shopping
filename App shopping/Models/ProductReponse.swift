@@ -27,5 +27,10 @@ struct Product: Codable {
     let images: [String]
     let thumbnail: String
 }
+struct Category: Codable {
+    let slug: String   
+    let name: String
+    let url: String
+}
 
 
