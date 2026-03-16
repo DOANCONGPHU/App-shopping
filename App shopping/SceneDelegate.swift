@@ -13,9 +13,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        //tab1
+        let homeVC = HomeViewController()
+        let nav1 = UINavigationController(rootViewController: homeVC)
+        nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        //tab2
+        let favVC = FavouriteViewController()
+        let nav2 = UINavigationController(rootViewController: favVC)
+        nav2.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart") , tag: 1)
+        //tab3
+        let inboxVC = InboxViewController()
+        let nav3 = UINavigationController(rootViewController: inboxVC)
+        nav3.tabBarItem = UITabBarItem(title: "Inbox", image: UIImage(systemName: "envelope"), tag: 2)
+        //tab4
+        let cartVC = CartViewController()
+        let nav4 = UINavigationController(rootViewController: cartVC)
+        nav4.tabBarItem = UITabBarItem(title: "Cart", image:UIImage(systemName:  "cart"), tag: 3)
+        //tab5
+        let profileVC = ProfileViewController()
+        let nav5 = UINavigationController(rootViewController: profileVC)
+        nav5.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 5)
+        
+        let tabBar = UITabBarController()
+        tabBar.viewControllers = [nav1,nav2,nav3,nav4,nav5]
+        
+        tabBar.tabBar.tintColor = .systemBlue
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemPurple
+        tabBar.tabBar.standardAppearance = appearance
+        
+        window?.rootViewController = tabBar
+        window?.makeKeyAndVisible()
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
