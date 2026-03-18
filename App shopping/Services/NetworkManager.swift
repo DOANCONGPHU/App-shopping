@@ -58,7 +58,7 @@ class NetworkManager {
     func fetchCategoryDetail(category: String, completion: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
         fetch(endpoint: "/products/category/\(category)", completion: completion)
     }
-    func fetchCategories(completion: @escaping (Result<Category, NetworkError>) -> Void) {
+    func fetchCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void) {
         fetch(endpoint: "/products/categories", completion: completion)
     }
     func fetchProductDetail(id: Int, completion: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
